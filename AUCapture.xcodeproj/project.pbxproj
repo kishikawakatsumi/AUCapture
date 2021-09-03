@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		149E747126E24EB70070330E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747026E24EB70070330E /* AppDelegate.swift */; };
+		149E747326E24EB70070330E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747226E24EB70070330E /* SceneDelegate.swift */; };
+		149E747526E24EB70070330E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747426E24EB70070330E /* ViewController.swift */; };
+		149E747826E24EB70070330E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149E747626E24EB70070330E /* Main.storyboard */; };
+		149E747A26E24EB80070330E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 149E747926E24EB80070330E /* Assets.xcassets */; };
+		149E747D26E24EB80070330E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149E747B26E24EB80070330E /* LaunchScreen.storyboard */; };
+		149E748B26E24FA60070330E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149E748A26E24FA60070330E /* NetworkExtension.framework */; };
+		149E748E26E24FA60070330E /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E748D26E24FA60070330E /* PacketTunnelProvider.swift */; };
+		149E749326E24FA60070330E /* PacketTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 149E748826E24FA60070330E /* PacketTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		149E749926E256760070330E /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149E748A26E24FA60070330E /* NetworkExtension.framework */; };
+		149E749B26E25C5F0070330E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E749A26E25C5F0070330E /* Util.swift */; };
+		149E749E26E265060070330E /* TCPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E749C26E265060070330E /* TCPSession.swift */; };
+		149E749F26E265060070330E /* UDPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E749D26E265060070330E /* UDPSession.swift */; };
+		149E74A126E265E60070330E /* ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A026E265E60070330E /* ByteBuffer.swift */; };
+		149E74A326E266F70070330E /* IPPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A226E266F70070330E /* IPPacket.swift */; };
+		149E74CB26E28DF10070330E /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74CA26E28DF10070330E /* Checksum.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		149E749126E24FA60070330E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 149E746526E24EB70070330E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 149E748726E24FA60070330E;
+			remoteInfo = PacketTunnel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		149E749726E24FA60070330E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				149E749326E24FA60070330E /* PacketTunnel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		149E746D26E24EB70070330E /* AUCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AUCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		149E747026E24EB70070330E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		149E747226E24EB70070330E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		149E747426E24EB70070330E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		149E747726E24EB70070330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		149E747926E24EB80070330E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		149E747C26E24EB80070330E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		149E747E26E24EB80070330E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		149E748826E24FA60070330E /* PacketTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PacketTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		149E748A26E24FA60070330E /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		149E748D26E24FA60070330E /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		149E748F26E24FA60070330E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		149E749026E24FA60070330E /* PacketTunnel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PacketTunnel.entitlements; sourceTree = "<group>"; };
+		149E749826E256760070330E /* AUCapture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AUCapture.entitlements; sourceTree = "<group>"; };
+		149E749A26E25C5F0070330E /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		149E749C26E265060070330E /* TCPSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPSession.swift; sourceTree = "<group>"; };
+		149E749D26E265060070330E /* UDPSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDPSession.swift; sourceTree = "<group>"; };
+		149E74A026E265E60070330E /* ByteBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBuffer.swift; sourceTree = "<group>"; };
+		149E74A226E266F70070330E /* IPPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPPacket.swift; sourceTree = "<group>"; };
+		149E74CA26E28DF10070330E /* Checksum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checksum.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		149E746A26E24EB70070330E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E749926E256760070330E /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149E748526E24FA60070330E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E748B26E24FA60070330E /* NetworkExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		149E746426E24EB70070330E = {
+			isa = PBXGroup;
+			children = (
+				149E746F26E24EB70070330E /* AUCapture */,
+				149E748C26E24FA60070330E /* PacketTunnel */,
+				149E748926E24FA60070330E /* Frameworks */,
+				149E746E26E24EB70070330E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		149E746E26E24EB70070330E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				149E746D26E24EB70070330E /* AUCapture.app */,
+				149E748826E24FA60070330E /* PacketTunnel.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		149E746F26E24EB70070330E /* AUCapture */ = {
+			isa = PBXGroup;
+			children = (
+				149E747026E24EB70070330E /* AppDelegate.swift */,
+				149E747226E24EB70070330E /* SceneDelegate.swift */,
+				149E747426E24EB70070330E /* ViewController.swift */,
+				149E747626E24EB70070330E /* Main.storyboard */,
+				149E747B26E24EB80070330E /* LaunchScreen.storyboard */,
+				149E747926E24EB80070330E /* Assets.xcassets */,
+				149E749826E256760070330E /* AUCapture.entitlements */,
+				149E747E26E24EB80070330E /* Info.plist */,
+			);
+			path = AUCapture;
+			sourceTree = "<group>";
+		};
+		149E748926E24FA60070330E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				149E748A26E24FA60070330E /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		149E748C26E24FA60070330E /* PacketTunnel */ = {
+			isa = PBXGroup;
+			children = (
+				149E748D26E24FA60070330E /* PacketTunnelProvider.swift */,
+				149E74A226E266F70070330E /* IPPacket.swift */,
+				149E74CA26E28DF10070330E /* Checksum.swift */,
+				149E749C26E265060070330E /* TCPSession.swift */,
+				149E749D26E265060070330E /* UDPSession.swift */,
+				149E74A026E265E60070330E /* ByteBuffer.swift */,
+				149E749A26E25C5F0070330E /* Util.swift */,
+				149E749026E24FA60070330E /* PacketTunnel.entitlements */,
+				149E748F26E24FA60070330E /* Info.plist */,
+			);
+			path = PacketTunnel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		149E746C26E24EB70070330E /* AUCapture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149E748126E24EB80070330E /* Build configuration list for PBXNativeTarget "AUCapture" */;
+			buildPhases = (
+				149E746926E24EB70070330E /* Sources */,
+				149E746A26E24EB70070330E /* Frameworks */,
+				149E746B26E24EB70070330E /* Resources */,
+				149E749726E24FA60070330E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				149E749226E24FA60070330E /* PBXTargetDependency */,
+			);
+			name = AUCapture;
+			productName = AUCapture;
+			productReference = 149E746D26E24EB70070330E /* AUCapture.app */;
+			productType = "com.apple.product-type.application";
+		};
+		149E748726E24FA60070330E /* PacketTunnel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 149E749426E24FA60070330E /* Build configuration list for PBXNativeTarget "PacketTunnel" */;
+			buildPhases = (
+				149E748426E24FA60070330E /* Sources */,
+				149E748526E24FA60070330E /* Frameworks */,
+				149E748626E24FA60070330E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PacketTunnel;
+			productName = PacketTunnel;
+			productReference = 149E748826E24FA60070330E /* PacketTunnel.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		149E746526E24EB70070330E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					149E746C26E24EB70070330E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					149E748726E24FA60070330E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 149E746826E24EB70070330E /* Build configuration list for PBXProject "AUCapture" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 149E746426E24EB70070330E;
+			productRefGroup = 149E746E26E24EB70070330E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				149E746C26E24EB70070330E /* AUCapture */,
+				149E748726E24FA60070330E /* PacketTunnel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		149E746B26E24EB70070330E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E747D26E24EB80070330E /* LaunchScreen.storyboard in Resources */,
+				149E747A26E24EB80070330E /* Assets.xcassets in Resources */,
+				149E747826E24EB70070330E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149E748626E24FA60070330E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		149E746926E24EB70070330E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E747526E24EB70070330E /* ViewController.swift in Sources */,
+				149E747126E24EB70070330E /* AppDelegate.swift in Sources */,
+				149E747326E24EB70070330E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		149E748426E24FA60070330E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E749F26E265060070330E /* UDPSession.swift in Sources */,
+				149E74CB26E28DF10070330E /* Checksum.swift in Sources */,
+				149E749E26E265060070330E /* TCPSession.swift in Sources */,
+				149E74A126E265E60070330E /* ByteBuffer.swift in Sources */,
+				149E74A326E266F70070330E /* IPPacket.swift in Sources */,
+				149E748E26E24FA60070330E /* PacketTunnelProvider.swift in Sources */,
+				149E749B26E25C5F0070330E /* Util.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		149E749226E24FA60070330E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 149E748726E24FA60070330E /* PacketTunnel */;
+			targetProxy = 149E749126E24FA60070330E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		149E747626E24EB70070330E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149E747726E24EB70070330E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		149E747B26E24EB80070330E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				149E747C26E24EB80070330E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		149E747F26E24EB80070330E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		149E748026E24EB80070330E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		149E748226E24EB80070330E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AUCapture/AUCapture.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				INFOPLIST_FILE = AUCapture/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.AUCapture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		149E748326E24EB80070330E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AUCapture/AUCapture.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				INFOPLIST_FILE = AUCapture/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.AUCapture;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		149E749526E24FA60070330E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				INFOPLIST_FILE = PacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.AUCapture.PacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		149E749626E24FA60070330E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PacketTunnel/PacketTunnel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 27AEDK3C9F;
+				INFOPLIST_FILE = PacketTunnel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kishikawakatsumi.AUCapture.PacketTunnel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		149E746826E24EB70070330E /* Build configuration list for PBXProject "AUCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149E747F26E24EB80070330E /* Debug */,
+				149E748026E24EB80070330E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149E748126E24EB80070330E /* Build configuration list for PBXNativeTarget "AUCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149E748226E24EB80070330E /* Debug */,
+				149E748326E24EB80070330E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		149E749426E24FA60070330E /* Build configuration list for PBXNativeTarget "PacketTunnel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149E749526E24FA60070330E /* Debug */,
+				149E749626E24FA60070330E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 149E746526E24EB70070330E /* Project object */;
+}
