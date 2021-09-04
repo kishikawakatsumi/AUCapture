@@ -71,6 +71,7 @@
 		149E74A026E265E60070330E /* ByteBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBuffer.swift; sourceTree = "<group>"; };
 		149E74A226E266F70070330E /* IPPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPPacket.swift; sourceTree = "<group>"; };
 		149E74CA26E28DF10070330E /* Checksum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checksum.swift; sourceTree = "<group>"; };
+		149E760926E3B3380070330E /* AmongUsProtocol */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AmongUsProtocol; path = ../../Documents/XcodeProjects/AmongUsProtocol; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 				149E748C26E24FA60070330E /* PacketTunnel */,
 				149E748926E24FA60070330E /* Frameworks */,
 				149E746E26E24EB70070330E /* Products */,
+				149E760926E3B3380070330E /* AmongUsProtocol */,
 			);
 			sourceTree = "<group>";
 		};

@@ -1,4 +1,5 @@
 import NetworkExtension
+import AmongUsProtocol
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     private var tcpSessions = [String: TCPSession]()
@@ -64,49 +65,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
 
     private func sendTCPPacket(_ packet: IPPacket) {
-        let key = "\(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort)"
-        NSLog("SEND: \(key) \(packet.proto) \(packet.packetData.hex)")
 
-        if let session = self.tcpSessions[key] {
-            session.send(packet.payload)
-        } else {
-//            let session = TCPSession(
-//                host: packet.destination,
-//                port: packet.destinationPort,
-//                payload: packet.payload
-//            )
-//            session.onReceive = { [weak self] (data) in
-//                guard let self = self else { return }
-//
-//                let packet = IPPacket(
-//                    proto: packet.proto,
-//                    source: packet.destination,
-//                    destination: packet.source,
-//                    sourcePort: packet.destinationPort,
-//                    destinationPort: packet.sourcePort,
-//                    payload: data
-//                )
-//
-//                NSLog("RECV: \(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort) \(packet.packetData.hex)")
-//
-//                self.packetFlow.writePacketObjects([
-//                    NEPacket(
-//                        data: packet.packetData,
-//                        protocolFamily: sa_family_t(AF_INET)
-//                    )
-//                ])
-//            }
-//            session.onError = { (error) in
-//                NSLog("TCP Error: \(error)")
-//            }
-//
-//            self.tcpSessions[key] = session
-        }
     }
 
     private func sendUDPPacket(_ packet: IPPacket) {
         let key = "\(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort)"
-        NSLog("SEND: \(key) \(packet.proto) \(packet.packetData.hex)")
+        NSLog("SEND: \(key) \(packet.proto) \(packet.payload.hex)")
 
         if let session = self.udpSessions[key] {
             session.send(packet.payload)
@@ -128,14 +92,89 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                     payload: data
                 )
 
-                NSLog("RECV: \(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort) \(packet.packetData.hex)")
+//                NSLog("RECV: \(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort) \(packet.packetData.hex)")
 
-//                if let auPacket = PacketParser.parse(packet: parser.payload) {
+                if let auPacket = PacketParser.parse(packet: data) {
 //                    NSLog("AUPK: \(auPacket)")
-//                    if case .disconnect = auPacket {
-//                        NSLog("SESSIONS: \(self?.sessions)")
-//                    }
-//                }
+                    switch auPacket {
+                    case .normal(let nomal):
+                        break
+                    case .reliable(let reliable):
+                        NSLog("AUPK: RECV: \(auPacket) \(data.hex)")
+                        for message in reliable.messages {
+                            switch message.payload {
+                            case .hostGame(let hostGame):
+                                NSLog("AUPK: hostGame: \(hostGame)")
+                            case .joinGame(let joinGame):
+                                NSLog("AUPK: joinGame: \(joinGame)")
+                            case .startGame(let startGame):
+                                NSLog("AUPK: startGame: \(startGame)")
+                            case .gameData(let gameData):
+                                for message in gameData.messages {
+                                    switch message.payload {
+                                    case .data(let data):
+                                        break
+                                    case .rpc(let rpc):
+                                        switch rpc.payload {
+                                        case .syncSettings(_):
+                                            break
+                                        case .setInfected(let setInfected):
+                                            NSLog("AUPK: setInfected: \(setInfected)")
+                                        case .setName(let setName):
+                                            break
+                                        case .setColor(let setColor):
+                                            break
+                                        case .setHat(let setHat):
+                                            break
+                                        case .setSkin(_):
+                                            break
+                                        case .murderPlayer(let murderPlayer):
+                                            NSLog("AUPK: murderPlayer: [\(rpc.senderNetId)] \(rpc.rpcCallId) killed \(murderPlayer)")
+                                        case .startMeeting(_):
+                                            break
+                                        case .sendChatNote(_):
+                                            break
+                                        case .setPet(_):
+                                            break
+                                        case .setStartCounter(_):
+                                            break
+                                        case .close:
+                                            break
+                                        case .votingComplete(_):
+                                            break
+                                        case .castVote(_):
+                                            break
+                                        case .setTasks(_):
+                                            break
+                                        case .updateGameData(_):
+                                            break
+                                        }
+                                    case .spawn(let spawn):
+                                        break
+                                    case .despawn(let despawn):
+                                        break
+                                    }
+                                }
+                            case .endGame(let endGame):
+                                NSLog("AUPK: endGame: \(endGame)")
+                            case .redirect(let redirect):
+                                NSLog("AUPK: redirect: \(redirect)")
+                            case .reselectServer(let reselectServer):
+                                NSLog("AUPK: reselectServer: \(reselectServer)")
+                            }
+                        }
+                    case .hello(let hello):
+                        break
+                    case .disconnect:
+                        NSLog("AUPK: disconnect")
+                    case .acknowledgement(let acknowledgement):
+                        break
+                    case .fragment:
+                        break
+                    case .ping(let ping):
+                        break
+                    }
+                }
 
                 self.packetFlow.writePacketObjects([
                     NEPacket(
