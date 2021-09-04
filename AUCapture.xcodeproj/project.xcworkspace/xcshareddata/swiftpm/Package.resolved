@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AmongUsProtocol",
+        "repositoryURL": "https://github.com/kishikawakatsumi/AmongUsProtocol.git",
+        "state": {
+          "branch": null,
+          "revision": "5afa79df119e8c5d446781be207bb449ef89cc3a",
+          "version": "0.2.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

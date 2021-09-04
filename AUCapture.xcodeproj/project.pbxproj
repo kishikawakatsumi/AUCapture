@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		149E74A126E265E60070330E /* ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A026E265E60070330E /* ByteBuffer.swift */; };
 		149E74A326E266F70070330E /* IPPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A226E266F70070330E /* IPPacket.swift */; };
 		149E74CB26E28DF10070330E /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74CA26E28DF10070330E /* Checksum.swift */; };
+		149E760726E3AE5F0070330E /* AmongUsProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 149E760626E3AE5F0070330E /* AmongUsProtocol */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149E748B26E24FA60070330E /* NetworkExtension.framework in Frameworks */,
+				149E760726E3AE5F0070330E /* AmongUsProtocol in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +187,9 @@
 			dependencies = (
 			);
 			name = PacketTunnel;
+			packageProductDependencies = (
+				149E760626E3AE5F0070330E /* AmongUsProtocol */,
+			);
 			productName = PacketTunnel;
 			productReference = 149E748826E24FA60070330E /* PacketTunnel.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 149E746426E24EB70070330E;
+			packageReferences = (
+				149E760526E3AE5F0070330E /* XCRemoteSwiftPackageReference "AmongUsProtocol" */,
+			);
 			productRefGroup = 149E746E26E24EB70070330E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -529,6 +537,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		149E760526E3AE5F0070330E /* XCRemoteSwiftPackageReference "AmongUsProtocol" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/AmongUsProtocol.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		149E760626E3AE5F0070330E /* AmongUsProtocol */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149E760526E3AE5F0070330E /* XCRemoteSwiftPackageReference "AmongUsProtocol" */;
+			productName = AmongUsProtocol;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 149E746526E24EB70070330E /* Project object */;
 }
