@@ -10,4 +10,4 @@ A packet capture app without remote VPN server. A demonstration for how to use `
 
 1. Change the App Group of both targets to yours.
 
-(Presentation at iOSDC 2021)[https://speakerdeck.com/kishikawakatsumi/network-extensiondeiosdebaisushang-dedong-kupaketutokiyaputiyawozuo-ru]
+[Presentation at iOSDC 2021](https://speakerdeck.com/kishikawakatsumi/network-extensiondeiosdebaisushang-dedong-kupaketutokiyaputiyawozuo-ru)
