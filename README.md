@@ -11,3 +11,8 @@ A packet capture app without remote VPN server. A demonstration for how to use `
 1. Change the App Group of both targets to yours.
 
 [Presentation at iOSDC 2021](https://speakerdeck.com/kishikawakatsumi/network-extensiondeiosdebaisushang-dedong-kupaketutokiyaputiyawozuo-ru)
+
+
+If you can run it correctly, the Xcode console will look like the following.
+
+<img width="800" alt="Screen Shot" src="https://user-images.githubusercontent.com/40610/133860072-496db787-9c7c-4f8d-a05b-9ca61da60193.png">
