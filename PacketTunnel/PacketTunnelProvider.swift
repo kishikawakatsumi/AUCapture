@@ -48,7 +48,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 if let ipPacket = IPPacket(packet.data) {
                     switch ipPacket.proto {
                     case .tcp:
-                        self.sendTCPPacket(ipPacket)
+                        self.handleTCPPacket(ipPacket)
                     case .udp:
                         self.sendUDPPacket(ipPacket)
                     case .icmp:
@@ -59,12 +59,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         }
     }
 
-    private func remotePacketToLocal() {
-
-    }
-
-    private func sendTCPPacket(_ packet: IPPacket) {
-
+    private func handleTCPPacket(_ packet: IPPacket) {
+        // For now, for the sake of simplicity, TCP packets are not handled.
     }
 
     private func sendUDPPacket(_ packet: IPPacket) {

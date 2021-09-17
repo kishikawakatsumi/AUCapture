@@ -40,13 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FileWatcherDelegate, UNUs
         let fileCoordinator = NSFileCoordinator()
         fileCoordinator.coordinate(readingItemAt: file, options: [], error: nil) { (file) in
             guard let text = try? String(contentsOf: file) else { return }
-            if let data = Data(hex: text) {
-                if let packet = PacketParser.parse(packet: data) {
-                    print(packet)
-                } else {
-                    print(text)
-                }
-            }
+            print(text)
         }
     }
 }
