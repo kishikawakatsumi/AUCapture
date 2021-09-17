@@ -7,6 +7,8 @@
 		<string>packet-tunnel-provider</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
-	<array/>
+	<array>
+		<string>group.com.kishikawakatsumi.AUCapture</string>
+	</array>
 </dict>
 </plist>

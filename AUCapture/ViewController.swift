@@ -16,18 +16,12 @@ final class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        launchAmongUsCell.isUserInteractionEnabled = false
-        launchAmongUsLabel.textColor = .systemGray3
-
         NotificationCenter.default.publisher(for: .NEVPNStatusDidChange)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let status = self?.manager?.connection.status else {
                     return
                 }
-
-                self?.launchAmongUsCell.isUserInteractionEnabled = false
-                self?.launchAmongUsLabel.textColor = .systemGray3
 
                 switch status {
                 case .invalid:

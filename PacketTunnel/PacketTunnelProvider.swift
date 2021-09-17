@@ -1,5 +1,4 @@
 import NetworkExtension
-import AmongUsProtocol
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
     private var tcpSessions = [String: TCPSession]()
@@ -71,15 +70,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     private func sendUDPPacket(_ packet: IPPacket) {
         let key = "\(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort)"
         NSLog("SEND: \(key) \(packet.payload.hex)")
-
-        let port = packet.destinationPort
-        if port == 22023 || port == 22123 || port == 22223 || port == 22323 ||
-            port == 22423 || port == 22523 || port == 22623 || port == 22723 ||
-            port == 22823 || port == 22923 {
-            if packet.payload.hex.hasPrefix("01") {
-                NSLog("handleEvent: => \(packet.payload.hex)")
-            }
-        }
+        sendPacketDump(packet.payload)
 
         if let session = self.udpSessions[key] {
             session.send(packet.payload)
@@ -102,10 +93,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 )
 
                 NSLog("RECV: \(packet.source):\(packet.sourcePort) => \(packet.destination):\(packet.destinationPort) \(data.hex)")
-
-                if let auPacket = PacketParser.parse(packet: data) {
-                    handleEvent(packet: auPacket, data: data)
-                }
+                sendPacketDump(data)
 
                 self.packetFlow.writePacketObjects([
                     NEPacket(
@@ -123,142 +111,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
     }
 }
 
-private func handleEvent(packet: Packet, data: Data) {
-    switch packet {
-    case .reliable(let reliable):
-        NSLog("handleEvent: \(packet) \(data.hex)")
-        for message in reliable.messages {
-            switch message.payload {
-            case .hostGame(let hostGame):
-                NSLog("Host Game: \(hostGame)")
-            case .joinGame(let joinGame):
-                NSLog("Join Game: \(joinGame.gameCode)")
-            case .startGame:
-                NSLog("Start Game")
-            case .gameData(let gameData):
-                handleGameData(gameData: gameData)
-            case .endGame(let endGame):
-                NSLog("End Game: \(endGame)")
-            case .redirect(_):
-                break
-            case .reselectServer(_):
-                break
-            }
-        }
-        break
-    case .disconnect:
-        break
-    case .normal, .hello, .acknowledgement, .fragment, .ping:
-        break
-    }
-}
-
-private func handleGameData(gameData: GameData) {
-    var despawning = false
-
-    for message in gameData.messages {
-        switch message.payload {
-        case .data:
-            break
-        case .rpc(let rpc):
-            switch rpc.payload {
-            case .syncSettings:
-                break
-            case .setInfected(let infected):
-//                var playerInfos = [ImmutablePlayer]()
-//                for player in GameStateCapture.shared.players {
-//                    playerInfos.append(ImmutablePlayer(name: player.name, isImpostor: infected.impostors.contains(player.id)))
-//                }
-//                GameStateCapture.shared.playerInfos = playerInfos
-                break
-            case .setName:
-                break
-            case .setColor, .setHat, .setSkin:
-                break
-            case .startMeeting:
-                break
-            case .sendChatNote, .setPet, .setStartCounter:
-                break
-            case .close:
-                break
-            case .votingComplete:
-                break
-            case .castVote, .setTasks:
-                break
-            case .updateGameData(let gameData):
-                let players = gameData.map { (playerData) in
-                    let flags = playerData.flags
-                    let isDisconnected = (flags & 1) != 0
-                    let isDead = (flags & 4) != 0
-
-                    NSLog("Player Data: \(playerData)")
-                }
-
-//                if despawning {
-//                    for player in GameStateCapture.shared.players {
-//                        if !players.contains(player) {
-//                            GameEventManager.shared.changeState(
-//                                event: PlayerChangedEvent(
-//                                    action: .left,
-//                                    name: player.name,
-//                                    isDead: player.isDead,
-//                                    isDisconnected: player.isDisconnected,
-//                                    color: player.color
-//                                )
-//                            )
-//                        }
-//                    }
-//                } else {
-//                    for player in players {
-//                        if GameStateCapture.shared.players.contains(player) {
-//                            GameEventManager.shared.changeState(
-//                                event: PlayerChangedEvent(
-//                                    action: .changedColor,
-//                                    name: player.name,
-//                                    isDead: player.isDead,
-//                                    isDisconnected: player.isDisconnected,
-//                                    color: player.color
-//                                )
-//                            )
-//                        } else {
-//                            GameEventManager.shared.changeState(
-//                                event: PlayerChangedEvent(
-//                                    action: .joined,
-//                                    name: player.name,
-//                                    isDead: player.isDead,
-//                                    isDisconnected: player.isDisconnected,
-//                                    color: player.color
-//                                )
-//                            )
-//                        }
-//                    }
-//                }
-//
-//                GameStateCapture.shared.players = players
-            case .murderPlayer(let murderPlayer):
-                NSLog("Murder Player: \(murderPlayer)")
-            }
-        case .spawn(let spawn):
-            switch spawn.spawnType {
-            case .shipStatus:
-                break
-            case .meetingHud:
-                break
-            case .lobbyBehaviour:
-                break
-            case .gameData:
-                break
-            case .playerControl:
-                break
-            case .headquarters:
-                break
-            case .planetMap:
-                break
-            case .aprilShipStatus:
-                break
-            }
-        case .despawn:
-            despawning = true
-        }
+private func sendPacketDump(_ data: Data) {
+    let container = AppGroup.container
+    let file = container.appendingPathComponent("capture_state")
+    let fileCoordinator = NSFileCoordinator()
+    fileCoordinator.coordinate(writingItemAt: file, options: [], error: nil) { (file) in
+        try? data.hex.write(to: file, atomically: false, encoding: .utf8)
     }
 }

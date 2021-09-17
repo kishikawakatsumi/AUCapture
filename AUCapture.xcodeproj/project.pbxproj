@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1420997626E4F9FF003B1C62 /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1420997526E4F9FF003B1C62 /* silence.wav */; };
+		1420997826E4FA29003B1C62 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1420997726E4FA29003B1C62 /* FileWatcher.swift */; };
+		14717CA926F5089C00C8F3E8 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14717CA826F5089C00C8F3E8 /* AppGroup.swift */; };
+		14717CAA26F508AC00C8F3E8 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14717CA826F5089C00C8F3E8 /* AppGroup.swift */; };
+		14717CAB26F5091D00C8F3E8 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E749A26E25C5F0070330E /* Util.swift */; };
+		14717CAD26F50E7600C8F3E8 /* AmongUsProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 14717CAC26F50E7600C8F3E8 /* AmongUsProtocol */; };
 		149E747126E24EB70070330E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747026E24EB70070330E /* AppDelegate.swift */; };
 		149E747326E24EB70070330E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747226E24EB70070330E /* SceneDelegate.swift */; };
 		149E747526E24EB70070330E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E747426E24EB70070330E /* ViewController.swift */; };
@@ -23,7 +29,6 @@
 		149E74A126E265E60070330E /* ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A026E265E60070330E /* ByteBuffer.swift */; };
 		149E74A326E266F70070330E /* IPPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74A226E266F70070330E /* IPPacket.swift */; };
 		149E74CB26E28DF10070330E /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E74CA26E28DF10070330E /* Checksum.swift */; };
-		149E760726E3AE5F0070330E /* AmongUsProtocol in Frameworks */ = {isa = PBXBuildFile; productRef = 149E760626E3AE5F0070330E /* AmongUsProtocol */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1420997526E4F9FF003B1C62 /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
+		1420997726E4FA29003B1C62 /* FileWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
+		14717CA826F5089C00C8F3E8 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		149E746D26E24EB70070330E /* AUCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AUCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		149E747026E24EB70070330E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		149E747226E24EB70070330E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +79,6 @@
 		149E74A026E265E60070330E /* ByteBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBuffer.swift; sourceTree = "<group>"; };
 		149E74A226E266F70070330E /* IPPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPPacket.swift; sourceTree = "<group>"; };
 		149E74CA26E28DF10070330E /* Checksum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checksum.swift; sourceTree = "<group>"; };
-		149E760926E3B3380070330E /* AmongUsProtocol */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AmongUsProtocol; path = ../../Documents/XcodeProjects/AmongUsProtocol; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				149E749926E256760070330E /* NetworkExtension.framework in Frameworks */,
+				14717CAD26F50E7600C8F3E8 /* AmongUsProtocol in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,21 +96,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				149E748B26E24FA60070330E /* NetworkExtension.framework in Frameworks */,
-				149E760726E3AE5F0070330E /* AmongUsProtocol in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14717CA726F5089000C8F3E8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				14717CA826F5089C00C8F3E8 /* AppGroup.swift */,
+				149E749A26E25C5F0070330E /* Util.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		149E746426E24EB70070330E = {
 			isa = PBXGroup;
 			children = (
 				149E746F26E24EB70070330E /* AUCapture */,
 				149E748C26E24FA60070330E /* PacketTunnel */,
+				14717CA726F5089000C8F3E8 /* Shared */,
 				149E748926E24FA60070330E /* Frameworks */,
 				149E746E26E24EB70070330E /* Products */,
-				149E760926E3B3380070330E /* AmongUsProtocol */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +137,8 @@
 				149E747026E24EB70070330E /* AppDelegate.swift */,
 				149E747226E24EB70070330E /* SceneDelegate.swift */,
 				149E747426E24EB70070330E /* ViewController.swift */,
+				1420997726E4FA29003B1C62 /* FileWatcher.swift */,
+				1420997526E4F9FF003B1C62 /* silence.wav */,
 				149E747626E24EB70070330E /* Main.storyboard */,
 				149E747B26E24EB80070330E /* LaunchScreen.storyboard */,
 				149E747926E24EB80070330E /* Assets.xcassets */,
@@ -147,7 +165,6 @@
 				149E749C26E265060070330E /* TCPSession.swift */,
 				149E749D26E265060070330E /* UDPSession.swift */,
 				149E74A026E265E60070330E /* ByteBuffer.swift */,
-				149E749A26E25C5F0070330E /* Util.swift */,
 				149E749026E24FA60070330E /* PacketTunnel.entitlements */,
 				149E748F26E24FA60070330E /* Info.plist */,
 			);
@@ -172,6 +189,9 @@
 				149E749226E24FA60070330E /* PBXTargetDependency */,
 			);
 			name = AUCapture;
+			packageProductDependencies = (
+				14717CAC26F50E7600C8F3E8 /* AmongUsProtocol */,
+			);
 			productName = AUCapture;
 			productReference = 149E746D26E24EB70070330E /* AUCapture.app */;
 			productType = "com.apple.product-type.application";
@@ -190,7 +210,6 @@
 			);
 			name = PacketTunnel;
 			packageProductDependencies = (
-				149E760626E3AE5F0070330E /* AmongUsProtocol */,
 			);
 			productName = PacketTunnel;
 			productReference = 149E748826E24FA60070330E /* PacketTunnel.appex */;
@@ -242,6 +261,7 @@
 			files = (
 				149E747D26E24EB80070330E /* LaunchScreen.storyboard in Resources */,
 				149E747A26E24EB80070330E /* Assets.xcassets in Resources */,
+				1420997626E4F9FF003B1C62 /* silence.wav in Resources */,
 				149E747826E24EB70070330E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,8 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14717CA926F5089C00C8F3E8 /* AppGroup.swift in Sources */,
+				14717CAB26F5091D00C8F3E8 /* Util.swift in Sources */,
 				149E747526E24EB70070330E /* ViewController.swift in Sources */,
 				149E747126E24EB70070330E /* AppDelegate.swift in Sources */,
+				1420997826E4FA29003B1C62 /* FileWatcher.swift in Sources */,
 				149E747326E24EB70070330E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +300,7 @@
 				149E74A326E266F70070330E /* IPPacket.swift in Sources */,
 				149E748E26E24FA60070330E /* PacketTunnelProvider.swift in Sources */,
 				149E749B26E25C5F0070330E /* Util.swift in Sources */,
+				14717CAA26F508AC00C8F3E8 /* AppGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +576,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		149E760626E3AE5F0070330E /* AmongUsProtocol */ = {
+		14717CAC26F50E7600C8F3E8 /* AmongUsProtocol */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 149E760526E3AE5F0070330E /* XCRemoteSwiftPackageReference "AmongUsProtocol" */;
 			productName = AmongUsProtocol;

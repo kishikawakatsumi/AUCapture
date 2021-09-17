@@ -33,8 +33,6 @@ extension Data {
 
 extension Collection {
     func chunks(ofSize size: Int) -> [SubSequence] {
-        // replace this by `guard count >= size else { return [] }`
-        // if you want to omit incomplete chunks
         guard !isEmpty else { return [] }
         return [prefix(size)] + dropFirst(size).chunks(ofSize: size)
     }
