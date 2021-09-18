@@ -12,6 +12,8 @@ A packet capture app without remote VPN server. A demonstration for how to use `
 
 [Presentation at iOSDC 2021](https://speakerdeck.com/kishikawakatsumi/network-extensiondeiosdebaisushang-dedong-kupaketutokiyaputiyawozuo-ru)
 
+※スライドに使ったコードよりシンプルにしているので、UIやTCPのエミュレーションは省いています。もし同じものを試したい場合はIssueなどでリクエストしてください🙏🏻（整理しきれてない部分もあるのでリクエストがあればできるだけ急いでまとめます。）
+
 
 If you can run it correctly, the Xcode console will look like the following.
 
